@@ -4,7 +4,7 @@ class AppConfig {
   constructor(DefaultPassword) {
     this.password = DefaultPassword;
     this.timestampServiceMinDelay = 2;
-    this.timestampServiceMaxDelay = 5;
+    this.timestampServiceMaxDelay = 10;
   }
 }
 

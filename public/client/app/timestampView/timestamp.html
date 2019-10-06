@@ -1,0 +1,19 @@
+
+<div ng-controller="TimestampViewCtrl as ctrl">
+  <table style="border-width: 1px">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Timestamp</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="event in ctrl.events" style="border-style: solid">
+        <td>{{event.time}}</td>
+        <td>{{event.timestamp}}</td>
+        <td>{{event.message}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

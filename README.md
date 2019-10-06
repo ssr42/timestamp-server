@@ -5,3 +5,5 @@ The server can be started using the script `start-server.sh [port] [password]`. 
 The client can be access at `http://localhost:8000/client/app/index.html`. 
 
 The tests (the test) can be running `npm test`.
+
+Both the server and client project structure was auto generated using IntelliJ.

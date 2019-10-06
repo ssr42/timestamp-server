@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+const app = require("../app");
+const logger = require("simple-node-logger").createSimpleLogger({ timestampFormat:"YYYY-MM-DD HH:mm:ss.SSS" });
+const http = require("http");
+const config = require("minimist")(process.argv.slice(2));
+
+const port = config.port || 8000;
+app.set("port", port);
+
+let server = http.createServer(app);
+
+server.listen(port);
+server.on("error", onError);
+server.on("listening", onListening);
+
+function onError(error) {
+  if (error.syscall !== "listen") {
+    throw error;
+  }
+
+  let bind = "Port " + port;
+
+  let exit = code => {
+    setTimeout(() => {
+      // allow logging to flush
+      process.exit(code);
+    }, 200);
+  };
+
+  switch (error.code) {
+    case "EACCES":
+      logger.error(bind + " requires elevated privileges");
+      exit(1);
+      break;
+    case "EADDRINUSE":
+      logger.error(bind + " is already in use");
+      exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+function onListening() {
+  let bind = "Port " + port;
+  logger.info("Listening on " + bind);
+}

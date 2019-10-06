@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Timestamp client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#!/config">Config</a></li>
+    <li><a href="#!/timestamp">Timestamp events</a></li>
+  </ul>
+
+  <div ng-view></div>
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="lib/crypto-js/crypto-js.js"></script>
+  <script src="app.js"></script>
+  <script src="core/appConfig/app-config.js"></script>
+  <script src="core/timestampService/timestamp-service.js"></script>
+  <script src="configView/config.js"></script>
+  <script src="timestampView/timestamp.js"></script>
+</body>
+</html>
